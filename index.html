@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f4f6fb" />
+  <title>Life Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="Life Dashboard home"><span class="brand-mark">L</span><span>Life <strong>Dashboard</strong></span></a>
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Toggle color theme">
+      <svg id="iconMoon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.1A8.5 8.5 0 0 1 8.9 3.8 8.6 8.6 0 1 0 20.2 15.1Z" /></svg>
+      <svg id="iconSun" viewBox="0 0 24 24" aria-hidden="true" hidden><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42" /></svg>
+    </button>
+  </header>
+
+  <main class="page-shell">
+    <section class="hero" aria-label="Greeting">
+      <p id="date" class="date">—</p>
+      <div id="time" class="time">00:00:00</div>
+      <h1 id="greetingText" class="greeting-text">Good morning</h1>
+      <form id="nameForm" class="name-form" autocomplete="off">
+        <label class="sr-only" for="nameInput">Your name</label>
+        <input id="nameInput" class="name-input" type="text" maxlength="24" placeholder="Your name" />
+        <button class="btn btn-subtle btn-small" type="submit">Save name</button>
+      </form>
+    </section>
+
+    <section class="dashboard" aria-label="Dashboard tools">
+      <article class="card timer-card" aria-labelledby="timerHeading">
+        <div class="card-head">
+          <div><p class="eyebrow">MAKE TIME FOR WHAT MATTERS</p><h2 id="timerHeading" class="card-title">Focus timer</h2></div>
+          <span id="timerState" class="status-badge">Ready</span>
+        </div>
+        <div id="timerDisplay" class="timer-display">25:00</div>
+        <div class="progress" role="progressbar" aria-label="Focus timer progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
+          <div id="timerProgress" class="progress-bar"></div>
+        </div>
+        <div class="timer-controls">
+          <button id="startBtn" class="btn btn-primary" type="button">Start</button>
+          <button id="stopBtn" class="btn btn-secondary" type="button" disabled>Stop</button>
+          <button id="resetBtn" class="btn btn-secondary" type="button">Reset</button>
+        </div>
+        <form id="durationForm" class="duration-form">
+          <label for="durationInput">Focus duration</label>
+          <div class="duration-control">
+            <input id="durationInput" class="duration-input" type="number" min="1" max="180" value="25" />
+            <span>min</span>
+          </div>
+          <button class="btn btn-subtle btn-small" type="submit">Set duration</button>
+        </form>
+      </article>
+
+      <article class="card" aria-labelledby="todoHeading">
+        <div class="card-head"><div><p class="eyebrow">STAY ON TRACK</p><h2 id="todoHeading" class="card-title">To-do list</h2></div></div>
+        <form id="todoForm" class="add-form" autocomplete="off">
+          <label class="sr-only" for="todoInput">New task</label>
+          <input id="todoInput" class="text-input" type="text" maxlength="120" placeholder="What needs to get done?" />
+          <button class="btn btn-primary add-button" type="submit" aria-label="Add task">Add</button>
+        </form>
+        <ul id="todoList" class="task-list"></ul>
+        <p id="todoEmpty" class="empty-note">Your list is clear. Add a task to get started.</p>
+      </article>
+
+      <article class="card" aria-labelledby="linksHeading">
+        <div class="card-head"><div><p class="eyebrow">YOUR FAVORITES, CLOSE BY</p><h2 id="linksHeading" class="card-title">Quick links</h2></div></div>
+        <div id="quickLinks" class="links-grid"></div>
+        <p id="linksEmpty" class="empty-note">Your favorite links will appear here.</p>
+        <form id="linkForm" class="link-form" autocomplete="off">
+          <label class="sr-only" for="linkName">Link name</label>
+          <input id="linkName" class="text-input" type="text" maxlength="24" placeholder="Website name" />
+          <label class="sr-only" for="linkUrl">Website address</label>
+          <input id="linkUrl" class="text-input" type="text" placeholder="Website address" />
+          <button class="btn btn-secondary link-submit" type="submit">Add link</button>
+        </form>
+      </article>
+    </section>
+
+    <footer class="footer"><span>Personal dashboard</span><span>Data stays in this browser</span></footer>
+  </main>
+  <script src="js/app.js"></script>
+</body>
+</html>
