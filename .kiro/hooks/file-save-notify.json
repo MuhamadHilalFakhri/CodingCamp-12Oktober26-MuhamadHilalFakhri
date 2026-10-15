@@ -1,0 +1,14 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "File Save Notification",
+      "trigger": "PostFileSave",
+      "description": "Notify and remind user after file save",
+      "action": {
+        "type": "agent",
+        "prompt": "File has been saved successfully. If this is a CSS file, remind the user to refresh their browser to see changes. If this is a JavaScript file, remind them to check the browser console for any errors."
+      }
+    }
+  ]
+}
